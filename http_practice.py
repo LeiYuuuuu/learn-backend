@@ -26,3 +26,9 @@ if repos:
 
 # 3. 故意请求一个不存在的资源
 get("https://api.github.com/users/no-such-user-zzz999")    # 预期输出 404
+
+print(type(user))          # 查看 user 的类型，预期输出 <class 'dict'>，对应 JSON 对象
+print(type(repos))         # 查看 repos 的类型，预期输出 <class 'list'>，对应 JSON 数组
+print(len(repos))          # 数组的长度（length），这里应该是 3，因为请求里写了 per_page=3
+print(type(repos[0]))      # 数组第一项的类型，预期是 dict：数组里装的是一个个对象
+print(list(user.keys()))   # 列出对象里所有的键（key），看看 GitHub 返回了哪些字段
